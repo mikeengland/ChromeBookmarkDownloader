@@ -21,3 +21,4 @@ Current limitations/To Do
 - Allow changing of output location/bookmark file locations via a config option
 - Allow it to be run as an executable
 - Possibly enhance to include Firefox/Safari
+- Possibly enhance to work with Windows/Linux Chrome installations
