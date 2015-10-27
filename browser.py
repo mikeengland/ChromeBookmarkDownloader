@@ -16,6 +16,7 @@ class Browser:
     def __init__(self, bookmark_location=None, output_location=None):
         self.bookmark_location = bookmark_location
         self.output_location = output_location
+        self.logger = logger
 
     def load_browser_bookmarks(self):
         """ Abstract method for retrieving the browser bookmarks"""
@@ -88,7 +89,6 @@ class ChromeBrowser(Browser):
         self._process_bookmarks(data)
 
         for folder in self.folders.keys():
-
             # strip forward slashes from folder names
             folder = folder.replace('/', '')
             folder = folder.replace('\\', '')

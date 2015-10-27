@@ -6,12 +6,11 @@ import logging
 import lxml.etree
 from bs4 import BeautifulSoup
 
+logger = logging.getLogger(__name__)
+
 
 class WebScrapeError(Exception):
     pass
-
-
-logger = logging.getLogger(__name__)
 
 
 class WebScraper:
