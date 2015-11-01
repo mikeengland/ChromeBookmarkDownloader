@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
-
-from browser import ChromeBrowser
-from utilities import setup_logging
 import logging
+import logging.config
+from logger import get_logger_dict
+from browser import ChromeBrowser
 
 def main():
-    # set basic logging
-    format = '%(asctime)s - %(threadName)s - %(name)s - line %(lineno)d - %(levelname)s - %(message)s'
-    logging.getLogger("requests").setLevel(logging.WARNING)
-    logging.basicConfig(level=logging.INFO, format=format)
+    # Setup logging    
+    logger_dict = get_logger_dict()
+    logging.config.dictConfig(logger_dict)
     
-    # save Chrome bookmarks
+    # Set requests to warning as minimum level or it gets very noisy
+    logging.getLogger('requests').setLevel(logging.WARNING)
+    
+    # Save Chrome bookmarks
     chrome = ChromeBrowser()
     chrome.save_bookmarks()
 
