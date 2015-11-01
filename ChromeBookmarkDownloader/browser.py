@@ -85,6 +85,8 @@ class ChromeBrowser(Browser):
     def save_bookmarks(self):
         """Save bookmarks to file structure"""
 
+        self.logger.info('Starting bookmark collection')
+
         data = self.load_browser_bookmarks()
         self._process_bookmarks(data)
 
@@ -141,6 +143,7 @@ class ChromeBrowser(Browser):
                     self.logger.error('Web page not saved - {} - {}'.format(item['url'], e))
                     pass
 
+        self.logger.info('Completed bookmark collection')
 
 if __name__ == '__main__':
     pass
